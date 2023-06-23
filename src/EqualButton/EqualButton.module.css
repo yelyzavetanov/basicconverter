@@ -1,0 +1,17 @@
+.button {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1em;
+    padding: 1em;
+    flex-grow: 0;
+
+    background: #03bfff;
+    color: #ffffff;
+}
+
+.button:active {
+    background: #ff3077;
+}

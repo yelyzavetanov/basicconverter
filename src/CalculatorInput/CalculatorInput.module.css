@@ -1,0 +1,26 @@
+.calculatorInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.input {
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 1em;
+    margin: 0.1em;
+    text-align: right;
+    background: #ffffff;
+    height: 2.5em;
+}
+
+.historyInput {
+    font-weight: 400;
+    font-size: 0.85em;
+    color: #999999;
+    /*padding: 1em;*/
+    /*margin: 0.1em;*/
+    text-align: right;
+    background: #ffffff;
+}
