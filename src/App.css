@@ -12,21 +12,6 @@ html {
   flex-direction: column;
 }
 
-.row {
-  display: flex;
-  justify-content: stretch;
-  width: 100%;
-}
-
-.little-row {
-  display: flex;
-}
-
-.double-row {
-  display: flex;
-  justify-content: stretch;
-}
-
 .App-link {
   color: #61dafb;
 }

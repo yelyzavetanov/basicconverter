@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    justify-content: stretch;
+    width: 100%;
+}
+
+.littleRow {
+    display: flex;
+}
+
+.doubleRow {
+    display: flex;
+    justify-content: stretch;
+}

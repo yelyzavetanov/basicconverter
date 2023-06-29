@@ -27,7 +27,6 @@ const EqualButton = (props) => {
     }
 
     const doThePriorityCalculations = (elementsArray, operatorElementsArray) => {
-        console.log("start");
         for (let i = 0; i < operatorElementsArray.length; i++) {
             if (
                 operatorElementsArray.find(e => e === "/" || e === "*")
@@ -36,7 +35,6 @@ const EqualButton = (props) => {
             ) {
                 let priorityOperator = operatorElementsArray.find(e => e === "/" || e === "*");
                 const priorityOperatorIndex = operatorElementsArray.indexOf(priorityOperator);
-                // console.log("we have some fucking problems, index:", priorityOperatorIndex);
                 let a = Number(elementsArray[priorityOperatorIndex]);
                 let b = Number(elementsArray[priorityOperatorIndex+1]);
                 let result = 0;
@@ -48,11 +46,9 @@ const EqualButton = (props) => {
                         result = a * b;
                         break;
                 }
-                console.log("elements:", a, priorityOperator, b, result)
                 elementsArray.splice(priorityOperatorIndex, 1, result.toString());
                 elementsArray.splice(priorityOperatorIndex+1, 1);
                 operatorElementsArray.splice(priorityOperatorIndex, 1);
-                console.log(elementsArray, operatorElementsArray);
             }
         }
     }
@@ -63,7 +59,6 @@ const EqualButton = (props) => {
         for (let i = 0; operatorElementsArray.length !== 0; i++) {
             let a = Number(elementsArray[0]);
             let b = Number(elementsArray[1]);
-            console.log(a, operatorElementsArray[0], b);
             switch (operatorElementsArray[0]) {
                 case "/":
                     result = a / b;
