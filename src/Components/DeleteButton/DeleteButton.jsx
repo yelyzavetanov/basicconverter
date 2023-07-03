@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./DeleteButton.module.css";
-import deleteIcon from "../img/delete.png";
+import deleteIcon from "../../img/delete.png";
 
 const DeleteButton = (props) => {
     const onCButtonClick = () => {

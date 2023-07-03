@@ -1,0 +1,21 @@
+.navigation {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.5em;
+}
+
+.navigation a {
+    color: #ffffff;
+    padding: 0.5em;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    color: #03bfff;
+}
+
+.navigation a:active {
+    color: #ff3077;
+}
