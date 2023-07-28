@@ -11,6 +11,7 @@ function App() {
             <div className="App">
                 <Navigation/>
                 <Routes>
+                    <Route path={"/"} element={<BasicCalculator/>}/>
                     <Route path={"/calculator"} element={<BasicCalculator/>}/>
                     <Route path={"/converter"} element={<BasicConverter/>}/>
                 </Routes>

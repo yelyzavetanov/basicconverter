@@ -9,7 +9,7 @@ const BasicCalculator = () => {
 
     return (
         <div>
-            <CalculatorInput inputValue={inputValue} previousValue={previousValue}/>
+            <CalculatorInput inputValue={inputValue} previousValue={previousValue} setInputValue={setInputValue}/>
             <CalculatorKeyboard
                 setInputValue={setInputValue}
                 setPreviousValue={setPreviousValue}

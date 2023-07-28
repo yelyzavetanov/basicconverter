@@ -1,14 +1,17 @@
-.row {
-    display: flex;
-    justify-content: stretch;
-    width: 100%;
+.calculatorKeyboard {
+
 }
 
-.littleRow {
+.littleButtonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.plusButtonContainer {
     display: flex;
 }
 
-.doubleRow {
+.plusButtonContainer div:first-child {
     display: flex;
-    justify-content: stretch;
+    flex-wrap: wrap;
 }

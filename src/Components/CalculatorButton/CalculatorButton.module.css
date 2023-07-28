@@ -1,4 +1,4 @@
-.button {
+.button, .activeButton {
     width: 2em;
     height: 2em;
     display: flex;
@@ -12,6 +12,6 @@
     color: #ffffff;
 }
 
-.button:active {
+.button:active, .activeButton {
     background: #03bfff;
 }

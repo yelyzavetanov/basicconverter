@@ -7,39 +7,37 @@ import PlusButton from "../PlusButton/PlusButton";
 import EqualButton from "../EqualButton/EqualButton";
 
 const CalculatorKeyboard = ({setInputValue, setPreviousValue, inputValue, previousValue}) => {
+    const calculatorButtonsKeysBunch1 = ["/", "*", "7", "8", "9", "-",];
+    const calculatorButtonsKeysBunch2 = ["4", "5", "6", "1", "2", "3",];
+    const calculatorButtonsKeysBunch3 = ["0", "00", ".",];
+
     return (
-        <div>
-            <div className={s.row}>
+        <div className={s.calculatorKeyboard}>
+            <div className={s.littleButtonsContainer}>
                 <CButton setInputValue={setInputValue} setPreviousValue={setPreviousValue}/>
                 <DeleteButton setInputValue={setInputValue} inputValue={inputValue}/>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>/</CalculatorButton>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>*</CalculatorButton>
-            </div>
-            <div className={s.row}>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>7</CalculatorButton>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>8</CalculatorButton>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>9</CalculatorButton>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>-</CalculatorButton>
-            </div>
-            <div  className={s.doubleRow}>
-                <div>
-                    <div className={s.littleRow}>
-                        <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>4</CalculatorButton>
-                        <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>5</CalculatorButton>
-                        <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>6</CalculatorButton>
+                {calculatorButtonsKeysBunch1.map(k =>
+                    <CalculatorButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
+                        {k}
+                    </CalculatorButton>
+                )}
+                <div className={s.plusButtonContainer}>
+                    <div>
+                        {calculatorButtonsKeysBunch2.map(k =>
+                            <CalculatorButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
+                                {k}
+                            </CalculatorButton>
+                        )}
                     </div>
-                    <div  className={s.littleRow}>
-                        <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>1</CalculatorButton>
-                        <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>2</CalculatorButton>
-                        <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>3</CalculatorButton>
+                    <div>
+                        <PlusButton setInputValue={setInputValue} inputValue={inputValue}/>
                     </div>
                 </div>
-                <div><PlusButton setInputValue={setInputValue} inputValue={inputValue}/></div>
-            </div>
-            <div className={s.row}>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>0</CalculatorButton>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>00</CalculatorButton>
-                <CalculatorButton setInputValue={setInputValue} inputValue={inputValue}>.</CalculatorButton>
+                {calculatorButtonsKeysBunch3.map(k =>
+                    <CalculatorButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
+                        {k}
+                    </CalculatorButton>
+                )}
                 <EqualButton
                     setInputValue={setInputValue}
                     inputValue={inputValue}

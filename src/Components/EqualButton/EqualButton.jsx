@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./EqualButton.module.css";
 
 const EqualButton = (props) => {
@@ -99,6 +99,20 @@ const EqualButton = (props) => {
             props.setPreviousValue(newPreviousValue);
         }
     }
+
+    const onKeyDown = (event) => {
+        if (event.key === "Enter" || event.key === "=") {
+            // console.log(event.key);
+            onEqualButtonClick();
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("keydown", (event) => onKeyDown(event), {once: true});
+        return () => {
+            document.removeEventListener("keydown", (event) => onKeyDown(event));
+        }
+    }, [props.inputValue])
 
     return (
         <div className={s.button} onClick={onEqualButtonClick}>
