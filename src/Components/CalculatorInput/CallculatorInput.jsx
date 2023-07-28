@@ -2,7 +2,6 @@ import React from "react";
 import s from "./CalculatorInput.module.css";
 
 const CalculatorInput = (props) => {
-
     const onInputChange = (event) => {
         const calculatorButtonKeys = ["/", "*", "-", "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "+"];
         const nonInt = ["/", "*", "-", "+"];
@@ -18,7 +17,6 @@ const CalculatorInput = (props) => {
                     props.setInputValue(props.inputValue + newChar);
                 }
             } else {
-                // console.log(newChar);
                 props.setInputValue(props.inputValue + newChar);
             }
         }

@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import s from "./CalculatorButton.module.css";
 
 const CalculatorButton = (props) => {
-    const [isActive] = useState(false);
-
     const onButtonClick = () => {
         const nonInt = ["/", "*", "-", "+"];
 
@@ -19,16 +17,8 @@ const CalculatorButton = (props) => {
         }
     }
 
-    // useEffect(() => {
-    //     setIsActive(false);
-    //     document.addEventListener("keydown", (event) => handleKeyDown(event), {once: true});
-    //     return () => {
-    //         document.removeEventListener("keydown", (event) => handleKeyDown(event));
-    //     }
-    // }, [props.inputValue, rerender]);
-
     return (
-        <div className={isActive ? s.activeButton : s.button} onClick={onButtonClick}>
+        <div className={s.button} onClick={onButtonClick}>
             {props.children}
         </div>
     )

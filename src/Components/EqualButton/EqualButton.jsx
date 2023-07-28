@@ -102,7 +102,6 @@ const EqualButton = (props) => {
 
     const onKeyDown = (event) => {
         if (event.key === "Enter" || event.key === "=") {
-            // console.log(event.key);
             onEqualButtonClick();
         }
     }

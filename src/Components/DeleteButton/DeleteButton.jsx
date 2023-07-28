@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import s from "./DeleteButton.module.css";
 import deleteIcon from "../../img/delete.png";
 
 const DeleteButton = (props) => {
-    const [isActive] = useState(false);
-
     const onDeleteButtonClick = () => {
         const valueArray = props.inputValue.split("");
         valueArray.pop();
@@ -26,7 +24,7 @@ const DeleteButton = (props) => {
 
     return (
         <div
-            className={isActive ? s.isActive : s.button}
+            className={s.button}
             onClick={onDeleteButtonClick}
         >
             <img src={deleteIcon} className={s.deleteIcon} alt={""}/>

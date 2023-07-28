@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-// import s from "./BasicCalculator.module.css";
 import CalculatorInput from "../CalculatorInput/CallculatorInput";
 import CalculatorKeyboard from "../CalculatorKeyboard/CalculatorKeyboard";
 
