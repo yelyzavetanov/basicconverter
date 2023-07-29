@@ -1,7 +1,7 @@
 import React from "react";
-import s from "./CalculatorButton.module.css";
+import s from "./DefaultButton.module.css";
 
-const CalculatorButton = (props) => {
+const DefaultButton = (props) => {
     const onButtonClick = () => {
         const nonInt = ["/", "*", "-", "+"];
 
@@ -24,4 +24,4 @@ const CalculatorButton = (props) => {
     )
 }
 
-export default CalculatorButton;
+export default DefaultButton;

@@ -1,0 +1,25 @@
+.currencySelectContainer {
+    /*background: red;*/
+    color: #000000;
+    display: flex;
+}
+
+select {
+    font-size: 0.6em;
+    font-weight: 600;
+    /*background: #0c2835;*/
+    color: #ff3077;
+    padding: 0.5em 0;
+    margin: 0;
+    height: 100%;
+    border: none;
+}
+
+select:hover, select:focus {
+    color: #03bfff;
+    outline: none;
+}
+
+select option {
+    background: #0c2835;
+}

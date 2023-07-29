@@ -6,16 +6,20 @@
     padding: 0.5em;
 }
 
-.navigation a {
+a {
     color: #ffffff;
     padding: 0.5em;
     text-decoration: none;
 }
 
-.navigation a:hover {
+a:hover {
     color: #03bfff;
 }
 
-.navigation a:active {
+a:active {
     color: #ff3077;
+}
+
+.activeLink {
+    color: #03bfff;
 }

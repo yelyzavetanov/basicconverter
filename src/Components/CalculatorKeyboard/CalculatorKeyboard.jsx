@@ -2,7 +2,7 @@ import React from "react";
 import s from "./CalculatorKeyboard.module.css";
 import CButton from "../CButton/CButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
-import CalculatorButton from "../CalculatorButton/CalculatorButton";
+import DefaultButton from "../DefaultButton/DefaultButton";
 import PlusButton from "../PlusButton/PlusButton";
 import EqualButton from "../EqualButton/EqualButton";
 
@@ -14,19 +14,19 @@ const CalculatorKeyboard = ({setInputValue, setPreviousValue, inputValue, previo
     return (
         <div className={s.calculatorKeyboard}>
             <div className={s.littleButtonsContainer}>
-                <CButton setInputValue={setInputValue} setPreviousValue={setPreviousValue}/>
+                <CButton setFirstValue={setInputValue} setSecondValue={setPreviousValue}/>
                 <DeleteButton setInputValue={setInputValue} inputValue={inputValue}/>
                 {calculatorButtonsKeysBunch1.map(k =>
-                    <CalculatorButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
+                    <DefaultButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
                         {k}
-                    </CalculatorButton>
+                    </DefaultButton>
                 )}
                 <div className={s.plusButtonContainer}>
                     <div>
                         {calculatorButtonsKeysBunch2.map(k =>
-                            <CalculatorButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
+                            <DefaultButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
                                 {k}
-                            </CalculatorButton>
+                            </DefaultButton>
                         )}
                     </div>
                     <div>
@@ -34,9 +34,9 @@ const CalculatorKeyboard = ({setInputValue, setPreviousValue, inputValue, previo
                     </div>
                 </div>
                 {calculatorButtonsKeysBunch3.map(k =>
-                    <CalculatorButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
+                    <DefaultButton key={k} setInputValue={setInputValue} inputValue={inputValue}>
                         {k}
-                    </CalculatorButton>
+                    </DefaultButton>
                 )}
                 <EqualButton
                     setInputValue={setInputValue}

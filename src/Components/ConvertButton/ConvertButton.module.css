@@ -1,0 +1,20 @@
+.convertButtonContainer {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-grow: 3;
+    background: #03bfff;
+    color: #ffffff;
+    margin: 0.1em;
+}
+
+.convertButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.convertButtonContainer:active {
+    background: #ff3077;
+}

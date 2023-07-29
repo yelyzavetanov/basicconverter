@@ -1,12 +1,12 @@
 import React from "react";
 import s from "./Navigation.module.css";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Navigation = () => {
     return (
         <nav className={s.navigation}>
-            <Link to={"/calculator"}>Calculator</Link>
-            <Link to={"/converter"}>Converter</Link>
+            <NavLink className={({isActive}) => isActive && s.activeLink} to={"/calculator"}>Calculator</NavLink>
+            <NavLink className={({isActive}) => isActive && s.activeLink} to={"/converter"}>Converter</NavLink>
         </nav>
     )
 }

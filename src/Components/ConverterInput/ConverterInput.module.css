@@ -1,0 +1,34 @@
+.converterInputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.converterInput {
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 1em;
+    margin: 0.1em;
+    text-align: right;
+    background: #ffffff;
+    height: 2.5em;
+}
+
+.inputContainer {
+    display: flex;
+}
+
+input {
+    /*background: green;*/
+    border: none;
+    padding: 0;
+    margin: 0 0 0 0.5em;
+    font-size: 1em;
+    text-align: right;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}

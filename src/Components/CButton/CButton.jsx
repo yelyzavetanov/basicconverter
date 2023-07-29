@@ -1,10 +1,10 @@
 import React from "react";
 import s from "./CButton.module.css";
 
-const CButton = (props) => {
+const CButton = ({setFirstValue, setSecondValue}) => {
     const onCButtonClick = () => {
-        props.setInputValue("");
-        props.setPreviousValue("");
+        setFirstValue("");
+        setSecondValue("");
     }
 
     return (
