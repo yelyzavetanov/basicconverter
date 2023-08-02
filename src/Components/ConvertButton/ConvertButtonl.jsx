@@ -3,10 +3,15 @@ import s from "./ConvertButton.module.css";
 
 const ConvertButton = (props) => {
     const onConvertButtonClick = () => {
-        console.log(props.currencyPairs[props.currentCurrencyPair]);
-        console.log("convert");
-        const newValue = parseInt(props.firstInputValue) * props.currencyPairs[props.currentCurrencyPair]
-        props.setSecondValue(newValue.toString());
+
+        if (props.firstInputValue === "" && props.secondInputValue === "") {
+        } else if (props.firstInputValue === "") {
+            const newValue = parseInt(props.secondInputValue) / props.currencyPairs[props.currentCurrencyPair];
+            props.setFirstValue(newValue.toString());
+        } else {
+            const newValue = parseInt(props.firstInputValue) * props.currencyPairs[props.currentCurrencyPair];
+            props.setSecondValue(newValue.toString());
+        }
     }
 
     return (

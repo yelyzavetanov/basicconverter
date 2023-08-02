@@ -26,7 +26,11 @@ const CalculatorInput = (props) => {
         <div className={s.calculatorInput}>
             <div className={s.input}>
                 <div className={s.historyInput}>{props.previousValue}</div>
-                <input value={props.inputValue} onChange={(event) => onInputChange(event)}/>
+                <input
+                    placeholder={0}
+                    value={props.inputValue}
+                    onChange={(event) => onInputChange(event)}
+                />
             </div>
         </div>
     )

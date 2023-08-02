@@ -27,6 +27,7 @@ const ConverterInput = (props) => {
                         setSelectedCurrencies={props.setSelectedCurrencies}
                     />
                     <input
+                        placeholder={"0.00"}
                         onClick={() => changeActiveInput("first")}
                         value={props.firstInputValue} onChange={(event) => onInputChange(event)}
                     />
