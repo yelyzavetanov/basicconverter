@@ -18,6 +18,7 @@ const ConverterKeyboard = (props) => {
                 </DefaultButton>
             )}
             <ConvertButton
+                selectedCurrencies={props.selectedCurrencies}
                 currencyPairs={props.currencyPairs} currentCurrencyPair={props.currentCurrencyPair}
                 firstInputValue={props.firstInputValue} secondInputValue={props.secondInputValue}
                 setFirstValue={props.setFirstValue} setSecondValue={props.setSecondValue}

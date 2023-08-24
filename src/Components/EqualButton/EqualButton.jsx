@@ -72,6 +72,8 @@ const EqualButton = (props) => {
                 case "+":
                     result = a + b;
                     break;
+                default:
+                    break;
             }
 
             operatorElementsArray.splice(operatorElementsArray[i], 1);

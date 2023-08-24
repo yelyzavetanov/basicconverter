@@ -13,7 +13,7 @@ const CurrencySelect = (props) => {
     return (
         <div className={s.currencySelectContainer}>
             <select value={props.selectedCurrencies[props.currencyIndex]} onChange={(event) => onSelectChange(event)}>
-                {props.currencyOptions.map(o => <option key={o}>{o}</option>)}
+                {props.optionsArray.map(o => <option key={o}>{o}</option>)}
             </select>
         </div>
     )

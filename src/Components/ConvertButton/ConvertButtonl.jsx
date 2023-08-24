@@ -1,18 +1,33 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import s from "./ConvertButton.module.css";
+import api from "../../api/api";
 
 const ConvertButton = (props) => {
-    const onConvertButtonClick = () => {
+    const [convertResult, setConvertResult] = useState();
 
-        if (props.firstInputValue === "" && props.secondInputValue === "") {
-        } else if (props.firstInputValue === "") {
-            const newValue = parseInt(props.secondInputValue) / props.currencyPairs[props.currentCurrencyPair];
-            props.setFirstValue(newValue.toString());
-        } else {
-            const newValue = parseInt(props.firstInputValue) * props.currencyPairs[props.currentCurrencyPair];
-            props.setSecondValue(newValue.toString());
+    const onConvertButtonClick = () => {
+        const getConvertResult = async (to, from, amount) => {
+            console.log(to, from, amount);
+            await api.fetchConvertResult(to, from, amount).then((r) => {
+                console.log("convert result: ", r.data.result);
+                setConvertResult(r.data.result);
+                props.setSecondValue(r.data.result.toString());
+            })
         }
+
+        getConvertResult(props.selectedCurrencies[1], props.selectedCurrencies[0], Number(props.firstInputValue)).then(r => r);
+
+        // if (props.firstInputValue === "" && props.secondInputValue === "") {
+        // } else if (props.firstInputValue === "") {
+        //     const newValue = parseInt(props.secondInputValue) / props.currencyPairs[props.currentCurrencyPair];
+        //     props.setFirstValue(newValue.toString());
+        // } else {
+        //     const newValue = parseInt(props.firstInputValue) * props.currencyPairs[props.currentCurrencyPair];
+        //     props.setSecondValue(newValue.toString());
+        // }
     }
+
+    // useEffect(() => {}, props.secondInputValue);
 
     return (
         <div onClick={onConvertButtonClick} className={s.convertButtonContainer}>
