@@ -23,8 +23,8 @@ const ConverterInput = (props) => {
             });
         };
 
-        console.log("no requests here now");
-        // getResult().then(r => r);
+        // console.log("no requests here now");
+        getResult().then(r => r);
     }, []);
 
     const onInputChange = (event) => {

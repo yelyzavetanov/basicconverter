@@ -1,21 +1,25 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import s from "./ConvertButton.module.css";
 import api from "../../api/api";
 
 const ConvertButton = (props) => {
-    const [convertResult, setConvertResult] = useState();
 
     const onConvertButtonClick = () => {
         const getConvertResult = async (to, from, amount) => {
             console.log(to, from, amount);
             await api.fetchConvertResult(to, from, amount).then((r) => {
                 console.log("convert result: ", r.data.result);
-                setConvertResult(r.data.result);
                 props.setSecondValue(r.data.result.toString());
             })
         }
 
-        getConvertResult(props.selectedCurrencies[1], props.selectedCurrencies[0], Number(props.firstInputValue)).then(r => r);
+        if (Number(props.firstInputValue) !== 0) {
+            getConvertResult(
+                props.selectedCurrencies[1],
+                props.selectedCurrencies[0],
+                Number(props.firstInputValue)
+            ).then(r => r);
+        }
 
         // if (props.firstInputValue === "" && props.secondInputValue === "") {
         // } else if (props.firstInputValue === "") {
