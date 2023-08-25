@@ -84,13 +84,28 @@ select * {
     padding-left: 0.3em;
     font-size: 0.95em;
     margin: 0.2em 0;
+    display: flex;
 }
 
-.currencyOption:hover {
+.optionCode {
+    width: 3em;
+}
+
+.optionTitle {
+    color: #555;
+    font-weight: 400;
+    width: 75%;
+    margin-left: 0.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.currencyOption:hover, .optionTitle:hover{
     color: #03bfff;
 }
 
-.currencyOption:active {
+.currencyOption:active, .optionTitle:active {
     color: #ff3077;
 }
 

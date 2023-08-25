@@ -45,6 +45,9 @@ const EqualButton = (props) => {
                     case "*":
                         result = a * b;
                         break;
+                    default:
+                        result = 0;
+                        break;
                 }
                 elementsArray.splice(priorityOperatorIndex, 1, result.toString());
                 elementsArray.splice(priorityOperatorIndex+1, 1);
@@ -73,6 +76,7 @@ const EqualButton = (props) => {
                     result = a + b;
                     break;
                 default:
+                    result = 0;
                     break;
             }
 

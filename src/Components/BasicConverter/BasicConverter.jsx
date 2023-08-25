@@ -6,7 +6,7 @@ import errorIcon from "../../img/error.png";
 
 const BasicConverter = (props) => {
     const [selectedCurrencies, setSelectedCurrencies] = useState(
-        [props.currencyOptions[1], props.currencyOptions[1]]
+        [props.currencyOptions[1].code, props.currencyOptions[1].code]
     );
 
     const [firstInputValue, setFirstInputValue] = useState("");

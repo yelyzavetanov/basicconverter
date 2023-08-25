@@ -7,27 +7,26 @@ import loader from "../../img/autorenew.gif";
 const ConverterInput = (props) => {
     const [optionsArray, setOptionsArray] = useState(props.currencyOptions);
     const [isSymbolsFetching, setIsSymbolsFetching] = useState(false);
+    const count = 0;
 
     useEffect(() => {
         const getResult = async () => {
             setIsSymbolsFetching(true);
             await api.fetchSymbols().then((r) => {
-                const dataArray = [];
-                dataArray.push(r.data.symbols);
-                const symbolsArray = [];
-                for (let obj of dataArray) {
-                    Object.keys(obj).forEach((key) => {
-                        symbolsArray.push(key);
+                const symbolsArray = Object.entries(r.data.symbols).map(
+                    entry => ({
+                        code: entry[0],
+                        title: entry[1],
                     })
-                }
-                console.log("symbols request");
+                );
+                console.log("symbols request", symbolsArray);
                 setOptionsArray(symbolsArray);
                 setIsSymbolsFetching(false);
             });
         };
 
         getResult().then(r => r);
-    }, []);
+    }, [count]);
 
     const onInputChange = (event) => {
         const keyboardButtonKeys = ["/", "*", "-", "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "+"];

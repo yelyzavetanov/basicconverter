@@ -6,7 +6,11 @@ const SET_SYMBOLS = "SET-SYMBOLS";
 const initialState = {
     testValue: "test",
 
-    currencyOptions: ["EUR", "USD", "UAH"],
+    currencyOptions: [
+        {code: "EUR", title: "eur"},
+        {code: "USD", title: "usd usd usd usd usd usd usd usd usd usd"},
+        {code: "UAH", title: "uah"},
+    ],
     // currencyOptions: [],
     currencyPairs: {
         "USD/USD": 1,

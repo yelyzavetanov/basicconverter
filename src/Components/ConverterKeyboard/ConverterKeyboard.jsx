@@ -3,7 +3,7 @@ import s from "./ConverterKeyboard.module.css";
 import DefaultButton from "../DefaultButton/DefaultButton";
 import CButton from "../CButton/CButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
-import ConvertButton from "../ConvertButton/ConvertButtonl";
+import ConvertButton from "../ConvertButton/ConvertButton";
 
 const ConverterKeyboard = (props) => {
     const converterKeys = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", "."];

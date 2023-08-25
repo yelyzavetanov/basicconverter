@@ -5,7 +5,7 @@ import Navigation from "./Components/Navigation/Navigation";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import BasicConverter from "./Components/BasicConverter/BasicConverter";
 import {connect} from "react-redux"
-import {requestSymbols} from "./reducers/coverterReducer";
+import {requestSymbols} from "./reducers/converterReducer";
 
 function App(props) {
     return (

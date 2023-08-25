@@ -7,6 +7,7 @@ const CurrencySelect = (props) => {
     const [isOptionsWindow, setIsOptionsWindow] = useState(false);
     const [shownOptions, setShownOptions] = useState(props.optionsArray);
     const [optionsFilter, setOptionsFilter] = useState("");
+    // console.log(props, shownOptions);
 
     const onOptionSelect = (option) => {
         if (props.currencyIndex === 0) {
@@ -18,9 +19,10 @@ const CurrencySelect = (props) => {
     }
 
     const searchOptions = () => {
-        const newShownOptions = props.optionsArray.filter((o) => {
-            if (o.includes(optionsFilter.toUpperCase())) return o;
-        });
+        const newShownOptions = props.optionsArray.filter((o) =>
+            o.code.includes(optionsFilter.toUpperCase())
+            || o.title.toUpperCase().includes(optionsFilter.toUpperCase())
+        );
         setShownOptions(newShownOptions);
     }
 
@@ -56,8 +58,13 @@ const CurrencySelect = (props) => {
                             <img className={s.loader} alt={""} src={loading}/>
                             {/*symbols are fetching*/}
                         </div>
-                        : shownOptions.map(o =>
-                        <div onClick={() => onOptionSelect(o)} className={s.currencyOption} key={o}>{o}</div>)
+                        : shownOptions.map(
+                            o =>
+                            <div onClick={() => onOptionSelect(o.code)} className={s.currencyOption} key={o.code}>
+                                <div className={s.optionCode}>{o.code}</div>
+                                <div className={s.optionTitle}>{o.title}</div>
+                            </div>
+                        )
                     }
                 </div>
                 <button className={s.closeButton} onClick={() => setIsOptionsWindow(false)}>

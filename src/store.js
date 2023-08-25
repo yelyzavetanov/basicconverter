@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import converterReducer from "./reducers/coverterReducer";
+import converterReducer from "./reducers/converterReducer";
 
 const reducer = {
     converter: converterReducer,
