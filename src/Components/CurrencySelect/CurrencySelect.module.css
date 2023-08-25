@@ -123,3 +123,14 @@ select * {
     /*border: black 0.1em solid;*/
     margin: 0.2em 0;
 }
+
+.loaderContainer {
+    display: flex;
+    height: 10em;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    width: 2em;
+}

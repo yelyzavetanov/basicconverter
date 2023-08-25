@@ -2,28 +2,30 @@ import React, {useEffect, useState} from "react";
 import s from "./ConverterInput.module.css";
 import CurrencySelect from "../CurrencySelect/CurrencySelect";
 import api from "../../api/api";
+import loader from "../../img/autorenew.gif";
 
 const ConverterInput = (props) => {
     const [optionsArray, setOptionsArray] = useState(props.currencyOptions);
+    const [isSymbolsFetching, setIsSymbolsFetching] = useState(false);
 
     useEffect(() => {
         const getResult = async () => {
+            setIsSymbolsFetching(true);
             await api.fetchSymbols().then((r) => {
                 const dataArray = [];
                 dataArray.push(r.data.symbols);
-                // console.log(dataArray);
                 const symbolsArray = [];
                 for (let obj of dataArray) {
                     Object.keys(obj).forEach((key) => {
                         symbolsArray.push(key);
                     })
                 }
-                console.log("symbols: ", symbolsArray);
+                console.log("symbols request");
                 setOptionsArray(symbolsArray);
+                setIsSymbolsFetching(false);
             });
         };
 
-        // console.log("no requests here now");
         getResult().then(r => r);
     }, []);
 
@@ -45,6 +47,7 @@ const ConverterInput = (props) => {
             <div className={s.converterInput}>
                 <div className={s.inputContainer}>
                     <CurrencySelect
+                        isSymbolsFetching={isSymbolsFetching}
                         currencyOptions={props.currencyOptions}
                         selectedCurrencies={props.selectedCurrencies}
                         currencyIndex={0}
@@ -59,6 +62,7 @@ const ConverterInput = (props) => {
                 </div>
                 <div className={s.inputContainer}>
                     <CurrencySelect
+                        isSymbolsFetching={isSymbolsFetching}
                         currencyOptions={props.currencyOptions}
                         selectedCurrencies={props.selectedCurrencies}
                         currencyIndex={1}
@@ -69,6 +73,7 @@ const ConverterInput = (props) => {
                         onClick={() => changeActiveInput("second")}
                         value={props.secondInputValue} onChange={(event) => onInputChange(event)}
                     />
+                    {props.isResultFetching && <img alt={""} src={loader} className={s.loader}/>}
                 </div>
             </div>
         </div>

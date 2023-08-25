@@ -3,14 +3,16 @@ import s from "./ConvertButton.module.css";
 import api from "../../api/api";
 
 const ConvertButton = (props) => {
-
     const onConvertButtonClick = () => {
         const getConvertResult = async (to, from, amount) => {
             console.log(to, from, amount);
+            props.setIsResultFetching(true);
+            props.setSecondValue("");
             await api.fetchConvertResult(to, from, amount).then((r) => {
                 console.log("convert result: ", r.data.result);
                 props.setSecondValue(r.data.result.toString());
-            })
+                props.setIsResultFetching(false);
+            }).catch(() => props.setError(true));
         }
 
         if (Number(props.firstInputValue) !== 0) {

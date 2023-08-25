@@ -21,7 +21,7 @@ const initialState = {
     }
 }
 
-console.log("initial state: ", initialState.currencyOptions);
+// console.log("initial state: ", initialState.currencyOptions);
 
 const converterReducer = createReducer(initialState, (builder) => {
     builder
