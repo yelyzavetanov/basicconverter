@@ -1,30 +1,26 @@
 import axios from "axios";
 
+const instanse = axios.create({
+    withCredentials: true,
+    baseURL: `https://api.apilayer.com/exchangerates_data`,
+    headers: {
+        apikey: "ilIgKghnbwxWDWZPmzHZOdp1hqJF8FM2",
+    }
+});
+
 const api = {
     fetchSomething: async () => {
-        const url = 'https://api.apilayer.com/exchangerates_data/symbols';
-        const config = {
-            headers: {apikey: "ilIgKghnbwxWDWZPmzHZOdp1hqJF8FM2"},
-        };
-        return await axios.get(url, config).then((res) => res).catch((err) => console.log(err));
+        return await instanse.get("/symbols").catch((err) => console.log(err));
     },
 
     fetchSymbols: async () => {
-        const url = 'https://api.apilayer.com/exchangerates_data/symbols';
-        const config = {
-            headers: {apikey: "ilIgKghnbwxWDWZPmzHZOdp1hqJF8FM2"},
-        }
-        return await axios.get(url, config)
+        return await instanse.get("/symbols")
             .then((res) => res)
             .catch((err) => console.log(err));
     },
 
     fetchConvertResult: async (to, from, amount) => {
-        const url = `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`;
-        const config = {
-            headers: {apikey: "ilIgKghnbwxWDWZPmzHZOdp1hqJF8FM2"},
-        }
-        return await axios.get(url, config)
+        return await instanse.get(`/convert?to=${to}&from=${from}&amount=${amount}`)
             .then((res) => res)
             .catch((err) => console.log(err));
     }

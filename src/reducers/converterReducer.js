@@ -11,7 +11,6 @@ const initialState = {
         {code: "USD", title: "usd usd usd usd usd usd usd usd usd usd"},
         {code: "UAH", title: "uah"},
     ],
-    // currencyOptions: [],
     currencyPairs: {
         "USD/USD": 1,
         "EUR/EUR": 1,
@@ -24,8 +23,6 @@ const initialState = {
         "UAH/USD": 0.027,
     }
 }
-
-// console.log("initial state: ", initialState.currencyOptions);
 
 const converterReducer = createReducer(initialState, (builder) => {
     builder
@@ -45,24 +42,6 @@ export const requestSymbols = () => {
         }
     }
 }
-
-// export const getCurrencyOptions = () => {
-//     return async (dispatch) => {
-//         const result = await api.fetchSymbols().then((r) => {
-//             return r;
-//         });
-//         dispatch(setSymbols(result));
-//     }
-// }
-
-// function converterReducer(state = initialState, action) {
-//     switch (action.type) {
-//         case "getSymbols":
-//             return "symbols test";
-//         default:
-//             return initialState;
-//     }
-// }
 
 export default converterReducer;
 

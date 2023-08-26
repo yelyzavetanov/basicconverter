@@ -7,7 +7,6 @@ const CurrencySelect = (props) => {
     const [isOptionsWindow, setIsOptionsWindow] = useState(false);
     const [shownOptions, setShownOptions] = useState(props.optionsArray);
     const [optionsFilter, setOptionsFilter] = useState("");
-    // console.log(props, shownOptions);
 
     const onOptionSelect = (option) => {
         if (props.currencyIndex === 0) {
@@ -56,7 +55,6 @@ const CurrencySelect = (props) => {
                     {props.isSymbolsFetching
                         ? <div className={s.loaderContainer}>
                             <img className={s.loader} alt={""} src={loading}/>
-                            {/*symbols are fetching*/}
                         </div>
                         : shownOptions.map(
                             o =>

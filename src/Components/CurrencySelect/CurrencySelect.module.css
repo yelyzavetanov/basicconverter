@@ -135,7 +135,6 @@ select * {
 .searchInput {
     text-align: left;
     padding: 0.2em;
-    /*border: black 0.1em solid;*/
     margin: 0.2em 0;
 }
 

@@ -19,7 +19,6 @@ const ConverterInput = (props) => {
                         title: entry[1],
                     })
                 );
-                console.log("symbols request", symbolsArray);
                 setOptionsArray(symbolsArray);
                 setIsSymbolsFetching(false);
             });
