@@ -8,7 +8,7 @@ const Navigation = () => {
             <NavLink className={({isActive}) => isActive ? s.activeLink : ""} to={"/calculator"}>
                 Calculator
             </NavLink>
-            <NavLink className={({isActive}) => isActive ? s.activeLink : ""} to={"/converter"}>
+            <NavLink className={({isActive}) => isActive ? s.activeLink : ""} to={"/"}>
                 Converter
             </NavLink>
         </nav>

@@ -13,9 +13,9 @@ function App(props) {
             <div className="App">
                 <Navigation/>
                 <Routes>
-                    <Route path={"/"} element={<BasicCalculator/>}/>
+                    {/*<Route path={"/"} element={<BasicCalculator/>}/>*/}
                     <Route path={"/calculator"} element={<BasicCalculator/>}/>
-                    <Route path={"/converter"} element={
+                    <Route path={"/"} element={
                         <BasicConverter
                             testValue={props.state.converter.testValue}
                             // getSymbols={props.getSymbols}

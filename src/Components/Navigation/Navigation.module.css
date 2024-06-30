@@ -1,9 +1,12 @@
 .navigation {
     display: flex;
+    justify-content: center;
     position: absolute;
     left: 0;
     top: 0;
+    right: 0;
     padding: 0.5em;
+    /*background: red;*/
 }
 
 a {
