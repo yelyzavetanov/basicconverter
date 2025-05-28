@@ -31,7 +31,6 @@ function App(props: PropsFromRedux) {
                     <Route path="/calculator" element={<BasicCalculator/>}/>
                     <Route path="/" element={
                         <BasicConverter
-                            testValue={props.state.converter.testValue}
                             getCurrencyOptions={props.requestSymbols}
                             currencyOptions={props.state.converter.currencyOptions}
                             currencyPairs={props.state.converter.currencyPairs}

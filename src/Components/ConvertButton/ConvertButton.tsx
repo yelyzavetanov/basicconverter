@@ -1,11 +1,8 @@
 import React from "react";
 import s from "./ConvertButton.module.css";
 import api from "../../api/api";
+import {CurrencyPairs} from "../../types/common";
 
-
-type CurrencyPairs = {
-    [pair: string]: number;
-};
 
 type Props = {
     setError: React.Dispatch<React.SetStateAction<boolean>>;

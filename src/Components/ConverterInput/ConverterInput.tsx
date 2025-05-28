@@ -3,12 +3,8 @@ import s from "./ConverterInput.module.css";
 import CurrencySelect from "../CurrencySelect/CurrencySelect";
 import loader from "../../img/autorenew.gif";
 import { useCurrencySymbols } from "./useCurrencySymbols";
+import {Option} from "../../types/common";
 
-
-type Option = {
-    title: string;
-    code: string;
-}
 
 type Props = {
     currencyOptions: Option[];

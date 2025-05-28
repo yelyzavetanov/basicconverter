@@ -4,10 +4,8 @@ import DefaultButton from "../DefaultButton/DefaultButton";
 import CButton from "../CButton/CButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import ConvertButton from "../ConvertButton/ConvertButton";
+import {CurrencyPairs} from "../../types/common";
 
-type CurrencyPairs = {
-    [pair: string]: number;
-}
 
 type Props = {
     setIsResultFetching: React.Dispatch<React.SetStateAction<boolean>>;

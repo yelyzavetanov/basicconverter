@@ -2,12 +2,8 @@ import React, {useEffect, useState} from "react";
 import s from "./CurrencySelect.module.css";
 import search from "../../img/search.png";
 import loading from "../../img/autorenew.gif"
+import {Option} from "../../types/common";
 
-
-type Option = {
-    title: string;
-    code: string;
-}
 
 type Props = {
     isSymbolsFetching: boolean;

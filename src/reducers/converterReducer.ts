@@ -1,20 +1,15 @@
 import {createAction, createReducer} from "@reduxjs/toolkit";
 import api from "../api/api";
 import {AppDispatch} from "../store";
+import {Option} from "../types/common";
 
-type Option = {
-    title: string;
-    code: string;
-}
 
 export const setSymbols = createAction<Option[]>("SET-SYMBOLS");
 
 const initialState = {
-    testValue: "test",
-
     currencyOptions: [
         {code: "EUR", title: "eur"},
-        {code: "USD", title: "usd usd usd usd usd usd usd usd usd usd"},
+        {code: "USD", title: "usd"},
         {code: "UAH", title: "uah"},
     ],
     currencyPairs: {

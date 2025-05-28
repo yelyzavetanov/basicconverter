@@ -3,19 +3,10 @@ import s from "./BasicConverter.module.css";
 import ConverterInput from "../ConverterInput/ConverterInput";
 import ConverterKeyboard from "../ConverterKeyboard/ConverterKeyboard";
 import errorIcon from "../../img/error.png";
+import {CurrencyPairs, Option} from "../../types/common";
 
-
-type Option = {
-    title: string;
-    code: string;
-}
-
-type CurrencyPairs = {
-    [pair: string]: number;
-};
 
 type Props = {
-    testValue: string;
     getCurrencyOptions:  () => Promise<void>;
     currencyOptions: Option[];
     currencyPairs: CurrencyPairs;
