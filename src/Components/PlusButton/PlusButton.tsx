@@ -1,7 +1,13 @@
 import React from "react";
 import s from "./PlusButton.module.css";
 
-const PlusButton = (props) => {
+
+type Props = {
+    setInputValue: React.Dispatch<React.SetStateAction<string>>;
+    inputValue: string;
+}
+
+const PlusButton = (props: Props) => {
     const onButtonClick = () => {
         let lastChar = props.inputValue.slice(-1);
 

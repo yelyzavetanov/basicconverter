@@ -4,8 +4,24 @@ import DefaultButton from "../DefaultButton/DefaultButton";
 import CButton from "../CButton/CButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import ConvertButton from "../ConvertButton/ConvertButton";
+import {CurrencyPairs} from "../../types/common";
 
-const ConverterKeyboard = (props) => {
+
+type Props = {
+    setIsResultFetching: React.Dispatch<React.SetStateAction<boolean>>;
+    selectedCurrencies: string[];
+    setError: React.Dispatch<React.SetStateAction<boolean>>;
+    firstInputValue: string;
+    secondInputValue: string;
+    currencyPairs: CurrencyPairs;
+    currentCurrencyPair: string;
+    setFirstValue: React.Dispatch<React.SetStateAction<string>>;
+    setSecondValue: React.Dispatch<React.SetStateAction<string>>;
+    activeInputValue: string;
+    setActiveInputValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const ConverterKeyboard = (props: Props) => {
     const converterKeys = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", "."];
 
     return (

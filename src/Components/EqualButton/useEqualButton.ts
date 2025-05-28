@@ -1,9 +1,16 @@
 import React, {useEffect} from "react";
-import s from "./EqualButton.module.css";
 
-const EqualButton = (props) => {
-    const setElementsArrays = (elementsArray, operatorElementsArray) => {
-        const valueArray = props.inputValue.split("");
+export const useEqualButton = (
+    inputValue:string,
+    setInputValue: React.Dispatch<React.SetStateAction<string>>,
+    setPreviousValue: React.Dispatch<React.SetStateAction<string>>,
+) => {
+
+    const setElementsArrays = (
+        elementsArray: string[],
+        operatorElementsArray: string[],
+    ) => {
+        const valueArray = inputValue.split("");
         const digitsArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
         const operatorsArray = ["/", "*", "-", "+"];
         let intElement = "";
@@ -26,7 +33,11 @@ const EqualButton = (props) => {
         }
     }
 
-    const doThePriorityCalculations = (elementsArray, operatorElementsArray) => {
+    const doThePriorityCalculations = (
+        elementsArray: string[],
+        operatorElementsArray: any[]
+    ) => {
+
         for (let i = 0; i < operatorElementsArray.length; i++) {
             if (
                 operatorElementsArray.find(e => e === "/" || e === "*")
@@ -34,6 +45,7 @@ const EqualButton = (props) => {
                 operatorElementsArray.some(e => e === "-" || e === "+")
             ) {
                 let priorityOperator = operatorElementsArray.find(e => e === "/" || e === "*");
+
                 const priorityOperatorIndex = operatorElementsArray.indexOf(priorityOperator);
                 let a = Number(elementsArray[priorityOperatorIndex]);
                 let b = Number(elementsArray[priorityOperatorIndex+1]);
@@ -56,7 +68,10 @@ const EqualButton = (props) => {
         }
     }
 
-    const doTheCalculations = (elementsArray, operatorElementsArray) => {
+    const doTheCalculations = (
+        elementsArray: string[],
+        operatorElementsArray: any[]
+    ) => {
         let result = 0;
 
         for (let i = 0; operatorElementsArray.length !== 0; i++) {
@@ -93,20 +108,20 @@ const EqualButton = (props) => {
     const onEqualButtonClick = () => {
         const operatorsArray = ["/", "*", "-", "+"];
 
-        if ((props.inputValue.split("").some(e => operatorsArray.some(o => o === e)))) {
-            const newPreviousValue = props.inputValue;
-            const elementsArray = [];
-            let operatorElementsArray = [];
+        if ((inputValue.split("").some(e => operatorsArray.some(o => o === e)))) {
+            const newPreviousValue = inputValue;
+            const elementsArray: string[] = [];
+            let operatorElementsArray: string[] = [];
 
             setElementsArrays(elementsArray, operatorElementsArray);
             doThePriorityCalculations(elementsArray, operatorElementsArray);
 
-            props.setInputValue(doTheCalculations(elementsArray, operatorElementsArray).toString());
-            props.setPreviousValue(newPreviousValue);
+            setInputValue(doTheCalculations(elementsArray, operatorElementsArray).toString());
+            setPreviousValue(newPreviousValue);
         }
     }
 
-    const onKeyDown = (event) => {
+    const onKeyDown = (event: KeyboardEvent) => {
         if (event.key === "Enter" || event.key === "=") {
             onEqualButtonClick();
         }
@@ -117,13 +132,7 @@ const EqualButton = (props) => {
         return () => {
             document.removeEventListener("keydown", (event) => onKeyDown(event));
         }
-    }, [props.inputValue])
+    }, [inputValue])
 
-    return (
-        <div className={s.button} onClick={onEqualButtonClick}>
-            =
-        </div>
-    )
+    return {onEqualButtonClick}
 }
-
-export default EqualButton;
