@@ -6,7 +6,16 @@ import DefaultButton from "../DefaultButton/DefaultButton";
 import PlusButton from "../PlusButton/PlusButton";
 import EqualButton from "../EqualButton/EqualButton";
 
-const CalculatorKeyboard = ({setInputValue, setPreviousValue, inputValue, previousValue}) => {
+
+type Props = {
+    setInputValue: React.Dispatch<React.SetStateAction<string>>;
+    setPreviousValue: React.Dispatch<React.SetStateAction<string>>;
+    inputValue: string;
+}
+
+const CalculatorKeyboard = (
+    {setInputValue, setPreviousValue, inputValue}: Props
+) => {
     const calculatorButtonsKeysBunch1 = ["/", "*", "7", "8", "9", "-",];
     const calculatorButtonsKeysBunch2 = ["4", "5", "6", "1", "2", "3",];
     const calculatorButtonsKeysBunch3 = ["0", "00", ".",];
@@ -41,7 +50,6 @@ const CalculatorKeyboard = ({setInputValue, setPreviousValue, inputValue, previo
                 <EqualButton
                     setInputValue={setInputValue}
                     inputValue={inputValue}
-                    previousValue={previousValue}
                     setPreviousValue={setPreviousValue}
                 />
             </div>

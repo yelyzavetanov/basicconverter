@@ -1,7 +1,12 @@
 import React from "react";
 import s from "./CButton.module.css";
 
-const CButton = ({setFirstValue, setSecondValue}) => {
+type Props = {
+    setFirstValue: React.Dispatch<React.SetStateAction<string>>;
+    setSecondValue: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const CButton = ({ setFirstValue, setSecondValue }: Props) => {
     const onCButtonClick = () => {
         setFirstValue("");
         setSecondValue("");

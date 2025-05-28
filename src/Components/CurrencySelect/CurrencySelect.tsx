@@ -3,12 +3,27 @@ import s from "./CurrencySelect.module.css";
 import search from "../../img/search.png";
 import loading from "../../img/autorenew.gif"
 
-const CurrencySelect = (props) => {
-    const [isOptionsWindow, setIsOptionsWindow] = useState(false);
-    const [shownOptions, setShownOptions] = useState(props.optionsArray);
-    const [optionsFilter, setOptionsFilter] = useState("");
 
-    const onOptionSelect = (option) => {
+type Option = {
+    title: string;
+    code: string;
+}
+
+type Props = {
+    isSymbolsFetching: boolean;
+    currencyOptions: Option[];
+    selectedCurrencies: string[];
+    currencyIndex: number;
+    setSelectedCurrencies: React.Dispatch<React.SetStateAction<string[]>>;
+    optionsArray: Option[];
+}
+
+const CurrencySelect = (props: Props) => {
+    const [isOptionsWindow, setIsOptionsWindow] = useState<boolean>(false);
+    const [shownOptions, setShownOptions] = useState<Option[]>(props.optionsArray);
+    const [optionsFilter, setOptionsFilter] = useState<string>("");
+
+    const onOptionSelect = (option: string) => {
         if (props.currencyIndex === 0) {
             props.setSelectedCurrencies([option, props.selectedCurrencies[1]]);
         } else if (props.currencyIndex === 1) {
@@ -18,14 +33,14 @@ const CurrencySelect = (props) => {
     }
 
     const searchOptions = () => {
-        const newShownOptions = props.optionsArray.filter((o) =>
+        const newShownOptions = props.optionsArray.filter((o: Option) =>
             o.code.includes(optionsFilter.toUpperCase())
             || o.title.toUpperCase().includes(optionsFilter.toUpperCase())
         );
         setShownOptions(newShownOptions);
     }
 
-    const changeOptionsFilter = (event) => {
+    const changeOptionsFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
         setOptionsFilter(event.target.value);
     }
 

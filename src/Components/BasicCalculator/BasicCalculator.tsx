@@ -3,8 +3,8 @@ import CalculatorInput from "../CalculatorInput/CallculatorInput";
 import CalculatorKeyboard from "../CalculatorKeyboard/CalculatorKeyboard";
 
 const BasicCalculator = () => {
-    let [inputValue, setInputValue] = useState("");
-    let [previousValue, setPreviousValue] = useState("");
+    const [inputValue, setInputValue] = useState<string>("");
+    const [previousValue, setPreviousValue] = useState<string>("");
 
     return (
         <div>
@@ -13,7 +13,6 @@ const BasicCalculator = () => {
                 setInputValue={setInputValue}
                 setPreviousValue={setPreviousValue}
                 inputValue={inputValue}
-                previousValue={previousValue}
             />
         </div>
     )

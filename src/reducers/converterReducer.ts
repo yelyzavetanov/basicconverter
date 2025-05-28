@@ -1,7 +1,13 @@
 import {createAction, createReducer} from "@reduxjs/toolkit";
 import api from "../api/api";
+import {AppDispatch} from "../store";
 
-const SET_SYMBOLS = "SET-SYMBOLS";
+type Option = {
+    title: string;
+    code: string;
+}
+
+export const setSymbols = createAction<Option[]>("SET-SYMBOLS");
 
 const initialState = {
     testValue: "test",
@@ -25,23 +31,24 @@ const initialState = {
 }
 
 const converterReducer = createReducer(initialState, (builder) => {
-    builder
-        .addCase(SET_SYMBOLS, (state, action) => {
-            console.log("reducer action options: ", action.options);
-            state.currencyOptions = action.options;
-        })
+    builder.addCase(setSymbols, (state, action) => {
+        console.log("reducer action payload: ", action.payload);
+        state.currencyOptions = action.payload;
+    });
 });
 
-const setSymbols = (options) => createAction(SET_SYMBOLS, options);
-
 export const requestSymbols = () => {
-    return async (dispatch) => {
-        const getData = async () => {
-            await api.fetchSymbols();
-            // dispatch(setSymbols(data));
-        }
-    }
-}
+    return async (dispatch: AppDispatch) => {
+        const response: any = await api.fetchSymbols();
+
+        const options = Object.keys(response.symbols).map(key => ({
+            code: key,
+            title: response.symbols[key].description,
+        }));
+
+        dispatch(setSymbols(options));
+    };
+};
 
 export default converterReducer;
 

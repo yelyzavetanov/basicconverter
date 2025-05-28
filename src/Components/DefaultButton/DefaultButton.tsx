@@ -1,7 +1,14 @@
 import React from "react";
 import s from "./DefaultButton.module.css";
 
-const DefaultButton = (props) => {
+
+type Props = {
+    setInputValue: React.Dispatch<React.SetStateAction<string>>;
+    inputValue: string;
+    children?: React.ReactNode;
+}
+
+const DefaultButton = (props: Props) => {
     const onButtonClick = () => {
         const nonInt = ["/", "*", "-", "+"];
 

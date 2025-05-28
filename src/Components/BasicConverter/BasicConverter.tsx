@@ -4,18 +4,35 @@ import ConverterInput from "../ConverterInput/ConverterInput";
 import ConverterKeyboard from "../ConverterKeyboard/ConverterKeyboard";
 import errorIcon from "../../img/error.png";
 
-const BasicConverter = (props) => {
-    const [selectedCurrencies, setSelectedCurrencies] = useState(
+
+type Option = {
+    title: string;
+    code: string;
+}
+
+type CurrencyPairs = {
+    [pair: string]: number;
+};
+
+type Props = {
+    testValue: string;
+    getCurrencyOptions:  () => Promise<void>;
+    currencyOptions: Option[];
+    currencyPairs: CurrencyPairs;
+}
+
+const BasicConverter = (props: Props) => {
+    const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>(
         [props.currencyOptions[1].code, props.currencyOptions[1].code]
     );
 
-    const [firstInputValue, setFirstInputValue] = useState("");
-    const [secondInputValue, setSecondInputValue] = useState("");
-    const [activeInput, setActiveInput] = useState("first");
-    const [currencyPair, setCurrencyPair] = useState(selectedCurrencies[0] + "/" + selectedCurrencies[1]);
+    const [firstInputValue, setFirstInputValue] = useState<string>("");
+    const [secondInputValue, setSecondInputValue] = useState<string>("");
+    const [activeInput, setActiveInput] = useState<"first" | "second">("first");
+    const [currencyPair, setCurrencyPair] = useState<string>(selectedCurrencies[0] + "/" + selectedCurrencies[1]);
 
-    const [error, setError] = useState(false);
-    const [isResultFetching, setIsResultFetching] = useState(false);
+    const [error, setError] = useState<boolean>(false);
+    const [isResultFetching, setIsResultFetching] = useState<boolean>(false);
 
     useEffect(() => {
         setCurrencyPair(selectedCurrencies[0] + "/" + selectedCurrencies[1]);
